@@ -4,7 +4,7 @@ pipeline {
     environment {
         IMAGENAME     = 'webdemo'       // 镜像名称
         IMAGETAG      = '1.0.0'         // 镜像标签
-        APPPORT       = '8089'          // 应用占用的端口
+        APPPORT       = '6089'          // 应用占用的端口
         APPDIR        = '/opt/app'      // 应用工作的目录
     }
 
