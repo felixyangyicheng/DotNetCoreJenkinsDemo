@@ -10,7 +10,7 @@ pipeline {
 
     agent {
         docker {
-            image 'mcr.microsoft.com/dotnet/sdk:9.0' 
+            image 'mcr.microsoft.com/dotnet/sdk:9.0-alpine' 
             args '-v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker'
         }
     }
@@ -46,8 +46,8 @@ pipeline {
                 sh  'touch Dockerfile'
                 sh  'env'
                 sh  'echo "start edit Dockerfile"'
-                sh  'echo "FROM mcr.microsoft.com/dotnet/aspnet:9.0" >> Dockerfile'
-                sh  'echo "COPY src/WebDemo/bin/Release/netcoreapp3.1/publish ${APPDIR}" >> Dockerfile'
+                sh  'echo "FROM mcr.microsoft.com/dotnet/aspnet:9.0-alpine" >> Dockerfile'
+                sh  'echo "COPY src/WebDemo/bin/Release/net9/publish ${APPDIR}" >> Dockerfile'
                 sh  'echo "EXPOSE ${APPPORT}" >> Dockerfile'
                 sh  'echo "WORKDIR ${APPDIR}" >> Dockerfile'
                 sh  'echo \'ENTRYPOINT ["dotnet", "WebDemo.dll"]\' >> Dockerfile'
